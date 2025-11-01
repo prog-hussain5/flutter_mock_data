@@ -91,9 +91,15 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(product, style: Theme.of(context).textTheme.titleMedium),
+                      Text(
+                        product,
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
                       const SizedBox(height: 6),
-                      Text('\$$price', style: Theme.of(context).textTheme.titleLarge),
+                      Text(
+                        '\$$price',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
                     ],
                   ),
                 ),

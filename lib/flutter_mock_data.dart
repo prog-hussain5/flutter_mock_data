@@ -1,6 +1,5 @@
 // ignore_for_file: unnecessary_library_name
 
-
 import 'dart:math';
 
 /// Locale options supported by MockData
@@ -46,21 +45,67 @@ class MockData {
 
   // ----------------------- Names -----------------------
   static final List<String> _firstNamesEn = [
-    'Liam', 'Olivia', 'Noah', 'Emma', 'Ava', 'Sophia', 'James', 'Isabella',
-    'Mia', 'Benjamin', 'Lucas', 'Ethan', 'Amelia', 'Harper', 'Alexander'
+    'Liam',
+    'Olivia',
+    'Noah',
+    'Emma',
+    'Ava',
+    'Sophia',
+    'James',
+    'Isabella',
+    'Mia',
+    'Benjamin',
+    'Lucas',
+    'Ethan',
+    'Amelia',
+    'Harper',
+    'Alexander',
   ];
   static final List<String> _lastNamesEn = [
-    'Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Miller', 'Davis',
-    'Garcia', 'Rodriguez', 'Wilson', 'Martinez', 'Anderson', 'Taylor'
+    'Smith',
+    'Johnson',
+    'Williams',
+    'Brown',
+    'Jones',
+    'Miller',
+    'Davis',
+    'Garcia',
+    'Rodriguez',
+    'Wilson',
+    'Martinez',
+    'Anderson',
+    'Taylor',
   ];
 
   static final List<String> _firstNamesAr = [
-    'محمد', 'أحمد', 'علي', 'يوسف', 'عمر', 'عبدالله', 'فاطمة', 'زينب', 'نور',
-    'سارة', 'خالد', 'حسن', 'حسين', 'ليلى', 'مريم'
+    'محمد',
+    'أحمد',
+    'علي',
+    'يوسف',
+    'عمر',
+    'عبدالله',
+    'فاطمة',
+    'زينب',
+    'نور',
+    'سارة',
+    'خالد',
+    'حسن',
+    'حسين',
+    'ليلى',
+    'مريم',
   ];
   static final List<String> _lastNamesAr = [
-    'الهاشمي', 'الأنصاري', 'المصري', 'السعودي', 'الأنسي', 'العتيبي', 'الشريف',
-    'الخطيب', 'الكاظمي', 'البغدادي', 'القحطاني'
+    'الهاشمي',
+    'الأنصاري',
+    'المصري',
+    'السعودي',
+    'الأنسي',
+    'العتيبي',
+    'الشريف',
+    'الخطيب',
+    'الكاظمي',
+    'البغدادي',
+    'القحطاني',
   ];
 
   static T _pick<T>(List<T> items) => items[_rand.nextInt(items.length)];
@@ -84,7 +129,11 @@ class MockData {
 
   // ----------------------- Email -----------------------
   static final List<String> _domains = [
-    'example.com', 'mail.com', 'gmail.com', 'outlook.com', 'yahoo.com'
+    'example.com',
+    'mail.com',
+    'gmail.com',
+    'outlook.com',
+    'yahoo.com',
   ];
 
   /// Generate email address.
@@ -94,12 +143,13 @@ class MockData {
     final fn = firstName(locale: loc).toLowerCase();
     final ln = lastName(locale: loc).toLowerCase();
     final token = _rand.nextInt(9999).toString().padLeft(2, '0');
-  String safe(String s) {
-    return s
-      .replaceAll(RegExp('[^a-z0-9]+'), '_')
-      .replaceAll(RegExp('_+'), '_')
-      .replaceAll(RegExp(r'^_|_+$'), '');
-  }
+    String safe(String s) {
+      return s
+          .replaceAll(RegExp('[^a-z0-9]+'), '_')
+          .replaceAll(RegExp('_+'), '_')
+          .replaceAll(RegExp(r'^_|_+$'), '');
+    }
+
     final user = safe('$fn.$ln$token');
     final dom = ensure(domain, () => _pick(_domains));
     return '$user@$dom';
@@ -118,26 +168,71 @@ class MockData {
 
   // ----------------------- Locations -----------------------
   static final List<String> _countriesEn = [
-    'United States', 'United Kingdom', 'Germany', 'France', 'Canada', 'Italy',
-    'Spain', 'Netherlands', 'Japan', 'Australia'
+    'United States',
+    'United Kingdom',
+    'Germany',
+    'France',
+    'Canada',
+    'Italy',
+    'Spain',
+    'Netherlands',
+    'Japan',
+    'Australia',
   ];
   static final List<String> _countriesAr = [
-    'السعودية', 'الإمارات', 'مصر', 'العراق', 'الأردن', 'فلسطين', 'المغرب',
-    'الجزائر', 'تونس', 'البحرين'
+    'السعودية',
+    'الإمارات',
+    'مصر',
+    'العراق',
+    'الأردن',
+    'فلسطين',
+    'المغرب',
+    'الجزائر',
+    'تونس',
+    'البحرين',
   ];
   static final List<String> _citiesEn = [
-    'New York', 'London', 'Berlin', 'Paris', 'Toronto', 'Rome', 'Madrid',
-    'Amsterdam', 'Tokyo', 'Sydney'
+    'New York',
+    'London',
+    'Berlin',
+    'Paris',
+    'Toronto',
+    'Rome',
+    'Madrid',
+    'Amsterdam',
+    'Tokyo',
+    'Sydney',
   ];
   static final List<String> _citiesAr = [
-    'الرياض', 'دبي', 'القاهرة', 'بغداد', 'عمان', 'الدوحة', 'جدة', 'الدار البيضاء',
-    'الجزائر', 'تونس'
+    'الرياض',
+    'دبي',
+    'القاهرة',
+    'بغداد',
+    'عمان',
+    'الدوحة',
+    'جدة',
+    'الدار البيضاء',
+    'الجزائر',
+    'تونس',
   ];
   static final List<String> _streetNamesEn = [
-    'Main', 'Oak', 'Pine', 'Cedar', 'Maple', 'Elm', 'Walnut', 'Sunset'
+    'Main',
+    'Oak',
+    'Pine',
+    'Cedar',
+    'Maple',
+    'Elm',
+    'Walnut',
+    'Sunset',
   ];
   static final List<String> _streetNamesAr = [
-    'الملك', 'السلام', 'النخيل', 'الورود', 'النصر', 'الوحدة', 'السعادة'
+    'الملك',
+    'السلام',
+    'النخيل',
+    'الورود',
+    'النصر',
+    'الوحدة',
+    'السعادة',
   ];
 
   static String country({MockLocale? locale}) {
@@ -153,7 +248,9 @@ class MockData {
   static String address({MockLocale? locale}) {
     final loc = locale ?? _locale;
     final num = 1 + _rand.nextInt(199);
-    final street = loc == MockLocale.ar ? _pick(_streetNamesAr) : _pick(_streetNamesEn);
+    final street = loc == MockLocale.ar
+        ? _pick(_streetNamesAr)
+        : _pick(_streetNamesEn);
     final c = city(locale: loc);
     final cnt = country(locale: loc);
     return loc == MockLocale.ar
@@ -177,7 +274,10 @@ class MockData {
     final seed = _rand.nextInt(100000);
 
     // Special providers for maximum reliability where possible
-    if (cat == 'people' || cat == 'person' || cat == 'avatar' || cat == 'users') {
+    if (cat == 'people' ||
+        cat == 'person' ||
+        cat == 'avatar' ||
+        cat == 'users') {
       final gender = _rand.nextBool() ? 'men' : 'women';
       final id = _rand.nextInt(100); // 0..99 supported by randomuser
       return 'https://randomuser.me/api/portraits/$gender/$id.jpg';
@@ -187,7 +287,7 @@ class MockData {
     }
 
     // Map many popular categories to loremflickr keywords (JPEG, stable with lock)
-  String? keywordFor(String key) {
+    String? keywordFor(String key) {
       const map = {
         'animals': 'animals',
         'dogs': 'dog',
@@ -228,7 +328,7 @@ class MockData {
       return map[key];
     }
 
-  final keyword = keywordFor(cat);
+    final keyword = keywordFor(cat);
     if (keyword != null) {
       return 'https://loremflickr.com/$w/$h/$keyword?lock=$seed';
     }
@@ -239,16 +339,40 @@ class MockData {
 
   // ----------------------- Products -----------------------
   static final List<String> _adjectivesEn = [
-    'Smart', 'Eco', 'Portable', 'Premium', 'Ultra', 'Classic', 'Modern'
+    'Smart',
+    'Eco',
+    'Portable',
+    'Premium',
+    'Ultra',
+    'Classic',
+    'Modern',
   ];
   static final List<String> _nounsEn = [
-    'Headphones', 'Backpack', 'Bottle', 'Chair', 'Lamp', 'Watch', 'Shoes'
+    'Headphones',
+    'Backpack',
+    'Bottle',
+    'Chair',
+    'Lamp',
+    'Watch',
+    'Shoes',
   ];
   static final List<String> _adjectivesAr = [
-    'ذكي', 'بيئي', 'محمول', 'فاخر', 'بريموم', 'كلاسيكي', 'حديث'
+    'ذكي',
+    'بيئي',
+    'محمول',
+    'فاخر',
+    'بريموم',
+    'كلاسيكي',
+    'حديث',
   ];
   static final List<String> _nounsAr = [
-    'سماعات', 'حقيبة', 'قارورة', 'كرسي', 'مصباح', 'ساعة', 'حذاء'
+    'سماعات',
+    'حقيبة',
+    'قارورة',
+    'كرسي',
+    'مصباح',
+    'ساعة',
+    'حذاء',
   ];
 
   static String productName({MockLocale? locale}) {
@@ -273,7 +397,7 @@ class MockData {
       final words = loc == MockLocale.ar
           ? arabicLorem(words: 8 + _rand.nextInt(6))
           : lorem(words: 8 + _rand.nextInt(6));
-  final s = '${words[0].toUpperCase()}${words.substring(1)}.';
+      final s = '${words[0].toUpperCase()}${words.substring(1)}.';
       builder.add(s);
     }
     return builder.join(' ');
@@ -284,22 +408,24 @@ class MockData {
   static DateTime date({int rangeInDays = 365, bool inFuture = false}) {
     final delta = _rand.nextInt(rangeInDays + 1);
     final sign = inFuture ? 1 : -1;
-    return DateTime.now().add(Duration(days: sign * delta, minutes: _rand.nextInt(1440)));
+    return DateTime.now().add(
+      Duration(days: sign * delta, minutes: _rand.nextInt(1440)),
+    );
   }
 
   // ----------------------- Text -----------------------
-  static final List<String> _loremWordsEn = (
-    'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua '
-    'ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat '
-    'duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur '
-    'excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum'
-  ).split(' ');
+  static final List<String> _loremWordsEn =
+      ('lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua '
+              'ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat '
+              'duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur '
+              'excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum')
+          .split(' ');
 
-  static final List<String> _loremWordsAr = (
-    'لوريم ايبسوم نص شكلي يستخدم في صناعة المطابع والتنضيد كان لوريم ايبسوم النص القياسي منذ القرن الخامس عشر '
-    'حين قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي لصنع كتاب عينات '
-    'لقد صمد ليس فقط خمسة قرون بل قفز ايضا الى التنضيد الالكتروني'
-  ).split(' ');
+  static final List<String> _loremWordsAr =
+      ('لوريم ايبسوم نص شكلي يستخدم في صناعة المطابع والتنضيد كان لوريم ايبسوم النص القياسي منذ القرن الخامس عشر '
+              'حين قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي لصنع كتاب عينات '
+              'لقد صمد ليس فقط خمسة قرون بل قفز ايضا الى التنضيد الالكتروني')
+          .split(' ');
 
   /// English lorem ipsum text with [words] count.
   static String lorem({int words = 10}) {
@@ -343,9 +469,8 @@ class MockData {
           'price': price(),
           'description': description(locale: loc),
           'image': image(category: 'tech', width: 600, height: 400),
-        }
-      }
+        },
+      },
     };
   }
 }
-

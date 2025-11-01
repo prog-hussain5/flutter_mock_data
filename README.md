@@ -1,4 +1,5 @@
 ![flutter_mock_data](images/Screenshot_1761983178.png)
+![flutter_mock_data_2](images/Screenshot_1761985377.png)
 
 ## flutter_mock_data
 
