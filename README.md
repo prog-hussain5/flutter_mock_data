@@ -65,7 +65,19 @@ ListView.builder(
 - Email: `email({domain})`
 - Phone: `phone({countryCode})`
 - Location: `city()`, `country()`, `address()`
-- Images: `image({category, width, height})` categories: `people`, `nature`, `tech`, `animals`, `food`, `any`
+- Images: `image({category, width, height})`
+  - Supported categories (case-insensitive):
+    - people, person, avatar, users
+    - animals, cats, cat, dogs, dog
+    - cars, car, motorcycles, motorcycle, bikes, bike
+    - city, buildings, architecture
+    - business, finance
+    - fashion, sports, football, basketball
+    - travel, beach, mountains, forest, nature, flowers
+    - space, science, music, art
+    - technology, tech, computer, phone
+    - food, drinks, coffee
+    - any (default)
 - Products: `productName()`, `price({min, max, decimals})`, `description({sentences})`
 - Dates: `date({rangeInDays, inFuture})`
 - Text: `lorem({words})`, `arabicLorem({words})`

@@ -163,25 +163,78 @@ class MockData {
 
   // ----------------------- Images -----------------------
   /// Get a placeholder image URL.
-  /// Categories: people, nature, tech, animals, food, any (default)
+  ///
+  /// Popular categories supported (case-insensitive):
+  /// people, nature, tech, technology, animals, cats, cat, dogs, dog,
+  /// cars, motorcycles, bikes, city, buildings, architecture,
+  /// business, finance, fashion, sports, football, basketball,
+  /// travel, beach, mountains, forest, space, science, music, art,
+  /// food, drinks, coffee, flowers, any
   static String image({String? category, int width = 400, int height = 300}) {
-    final cat = (category ?? 'any').toLowerCase();
+    final w = width <= 0 ? 400 : width;
+    final h = height <= 0 ? 300 : height;
+    final cat = (category ?? 'any').toLowerCase().trim();
     final seed = _rand.nextInt(100000);
-    switch (cat) {
-      case 'people':
-        final id = 1 + _rand.nextInt(70);
-        return 'https://i.pravatar.cc/${width}x$height?img=$id&seed=$seed';
-      case 'animals':
-        return 'https://placebear.com/$width/$height?seed=$seed';
-      case 'tech':
-  return 'https://placehold.co/${width}x$height/0d6efd/ffffff?text=Tech%20$seed';
-      case 'food':
-        return 'https://loremflickr.com/$width/$height/food?lock=$seed';
-      case 'nature':
-        return 'https://picsum.photos/seed/$seed/$width/$height';
-      default:
-        return 'https://picsum.photos/seed/$seed/$width/$height';
+
+    // Special providers for maximum reliability where possible
+    if (cat == 'people' || cat == 'person' || cat == 'avatar' || cat == 'users') {
+      final gender = _rand.nextBool() ? 'men' : 'women';
+      final id = _rand.nextInt(100); // 0..99 supported by randomuser
+      return 'https://randomuser.me/api/portraits/$gender/$id.jpg';
     }
+    if (cat == 'cats' || cat == 'cat' || cat == 'kitten' || cat == 'kittens') {
+      return 'https://placekitten.com/$w/$h';
+    }
+
+    // Map many popular categories to loremflickr keywords (JPEG, stable with lock)
+  String? keywordFor(String key) {
+      const map = {
+        'animals': 'animals',
+        'dogs': 'dog',
+        'dog': 'dog',
+        'cars': 'car',
+        'car': 'car',
+        'motorcycles': 'motorcycle',
+        'motorcycle': 'motorcycle',
+        'bikes': 'bicycle',
+        'bike': 'bicycle',
+        'city': 'city',
+        'buildings': 'building',
+        'architecture': 'architecture',
+        'business': 'business',
+        'finance': 'finance',
+        'fashion': 'fashion',
+        'sports': 'sports',
+        'football': 'football',
+        'basketball': 'basketball',
+        'travel': 'travel',
+        'beach': 'beach',
+        'mountains': 'mountain',
+        'forest': 'forest',
+        'space': 'space',
+        'science': 'science',
+        'music': 'music',
+        'art': 'art',
+        'technology': 'technology',
+        'tech': 'technology',
+        'computer': 'computer',
+        'phone': 'smartphone',
+        'food': 'food',
+        'drinks': 'drink',
+        'coffee': 'coffee',
+        'flowers': 'flower',
+        'nature': 'nature',
+      };
+      return map[key];
+    }
+
+  final keyword = keywordFor(cat);
+    if (keyword != null) {
+      return 'https://loremflickr.com/$w/$h/$keyword?lock=$seed';
+    }
+
+    // Default: general nice-looking random image
+    return 'https://picsum.photos/seed/$seed/$w/$h';
   }
 
   // ----------------------- Products -----------------------

@@ -71,7 +71,19 @@ class HomePage extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  child: Image.network(img, width: 96, height: 96, fit: BoxFit.cover),
+                  child: Image.network(
+                    img,
+                    width: 96,
+                    height: 96,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stack) => Container(
+                      width: 96,
+                      height: 96,
+                      color: Colors.grey.shade300,
+                      alignment: Alignment.center,
+                      child: const Icon(Icons.broken_image_outlined),
+                    ),
+                  ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
