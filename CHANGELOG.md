@@ -10,3 +10,12 @@ Initial public release
 - Text (lorem in EN/AR)
 - Mock API JSON response
 - Simple example app under `example/`
+
+## 0.1.1
+
+Docs and example improvements
+
+- README: add screenshots banner images from images/ and tidy links/badges
+- README: remove grid example snippet as requested, keep simple ListView example
+- Example: ensure clean UI and error handling on network images
+- Code: expand image() categories and reliable providers (already in 0.1.0), formatted sources
