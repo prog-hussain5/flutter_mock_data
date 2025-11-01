@@ -1,0 +1,17 @@
+name: flutter_mock_data_example
+description: "Example app for flutter_mock_data package."
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: ^3.9.0
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_mock_data:
+    path: ../
+
+flutter:
+  uses-material-design: true
