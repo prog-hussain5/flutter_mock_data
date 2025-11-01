@@ -1,5 +1,8 @@
-![flutter_mock_data](images/Screenshot_1761983178.png)
-![flutter_mock_data_2](images/Screenshot_1761985377.png)
+<p align="center">
+  <img src="images/Screenshot_1761983178.png" alt="flutter_mock_data" width="360" />
+  <img src="images/Screenshot_1761985377.png" alt="flutter_mock_data_2" width="360" />
+  
+</p>
 
 ## flutter_mock_data
 
