@@ -19,3 +19,9 @@ Docs and example improvements
 - README: remove grid example snippet as requested, keep simple ListView example
 - Example: ensure clean UI and error handling on network images
 - Code: expand image() categories and reliable providers (already in 0.1.0), formatted sources
+
+## 0.1.2
+
+Docs tweak
+
+- README: display two screenshots side-by-side at smaller width using HTML img tags
