@@ -1,10 +1,15 @@
 ## flutter_mock_data
 
+[![pub package](https://img.shields.io/pub/v/flutter_mock_data.svg?style=flat-square)](https://pub.dev/packages/flutter_mock_data)
+[![pub points](https://img.shields.io/pub/points/flutter_mock_data?style=flat-square&logo=dart)](https://pub.dev/packages/flutter_mock_data/score)
+[![pub likes](https://img.shields.io/pub/likes/flutter_mock_data?style=flat-square)](https://pub.dev/packages/flutter_mock_data)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-prog--hussain5%2Fflutter__mock__data-181717?logo=github&style=flat-square)](https://github.com/prog-hussain5/flutter_mock_data)
+
 Generate realistic mock data for Flutter apps: names, emails, phones, images, addresses, products, text, dates, and mock JSON responses. Arabic and English supported.
 
-Repository: https://github.com/prog-hussain5/flutter_mock_data
+Source: [GitHub Repository](https://github.com/prog-hussain5/flutter_mock_data)
 
-### ✨ Features
+###  Features
 
 - Names: `fullName()`, `firstName()`, `lastName()` (AR/EN)
 - Emails: `email({String? domain})`
@@ -58,6 +63,68 @@ ListView.builder(
     );
   },
 );
+```
+
+### UI example (Grid)
+
+```dart
+// A modern grid of mock products
+GridView.builder(
+  padding: const EdgeInsets.all(8),
+  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: 2,
+    mainAxisSpacing: 12,
+    crossAxisSpacing: 12,
+    childAspectRatio: 0.72,
+  ),
+  itemCount: 12,
+  itemBuilder: (context, index) {
+    final name = MockData.productName();
+    final desc = MockData.description(sentences: 1);
+    final categories = ['tech','fashion','food','animals','travel','nature','cars','coffee','music','art','business','sports'];
+    final img = MockData.image(category: categories[index % categories.length], width: 600, height: 600);
+    final price = MockData.price(min: 9, max: 299);
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AspectRatio(
+            aspectRatio: 1,
+            child: Image.network(img, fit: BoxFit.cover),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(name, maxLines: 1, overflow: TextOverflow.ellipsis),
+                const SizedBox(height: 4),
+                Text(desc, maxLines: 2, overflow: TextOverflow.ellipsis),
+                const SizedBox(height: 8),
+                Text('\$${price.toStringAsFixed(2)}'),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  },
+);
+```
+
+### Screenshots
+
+Add screenshots from the example app for your README (optional):
+1) Run the example app under `example/`
+2) Take screenshots of the grid/products
+3) Place them under `docs/screenshots/`
+4) Reference them here:
+
+```md
+![Grid](docs/screenshots/grid.png)
+![Product Sheet](docs/screenshots/product_sheet.png)
 ```
 
 ### API overview
