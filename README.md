@@ -2,6 +2,8 @@
 
 Generate realistic mock data for Flutter apps: names, emails, phones, images, addresses, products, text, dates, and mock JSON responses. Arabic and English supported.
 
+Repository: https://github.com/prog-hussain5/flutter_mock_data
+
 ### ✨ Features
 
 - Names: `fullName()`, `firstName()`, `lastName()` (AR/EN)
